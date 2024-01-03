@@ -1,15 +1,11 @@
-﻿using System.Text.Json;
-using Confluent.Kafka;
-using TestBotForTicketsCRUD;
+﻿using Confluent.Kafka;
 
 var config = new ConsumerConfig
 {
     GroupId = "demo-group",
-    BootstrapServers = "localhost:9092",
+    BootstrapServers = "localhost:8082",
     AutoOffsetReset = AutoOffsetReset.Earliest
 };
-
-var tgBot = new TgBot();
 
 using (var consumer = new ConsumerBuilder<Ignore, string>(config).Build())
 {
